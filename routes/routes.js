@@ -3,24 +3,13 @@ const mongoose=require('mongoose')
 const bodyParser=require('body-parser')
 const router = express.Router();
 
-const medicines=require('../model/medicalSchema');
+const {getAllMed,CreateMed}=require('../controller/medController');
+
+
 //GET route in medical inventory to get all medicines data
-router.get('/med', function (req, res) {
-    medicines.find()
-    .then(medicines=>{res.json(medicines)})
-    .catch((err)=>res.send(err))
-})
+router.get('/med', getAllMed);
 
 //POST route in medical invertory
-router.post('/med',function(req,res){
-    const newItem=new medicines({
-        name:req.body.name,
-        quantity:req.body.quantity,
-        exp_date:req.body.exp_date,
-        description:req.body.description,
-        purchase_date:req.body.purchase_date,
-    });
-    newItem.save().then(medicines=>{res.json(medicines)}).catch((err)=>res.send(err))
-})
+router.post('/med',CreateMed);
 
 module.exports = router;

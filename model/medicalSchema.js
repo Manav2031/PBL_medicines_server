@@ -10,6 +10,10 @@ const medicalSchema=new mongoose.Schema({
         default:0,
         required:true
     },
+    price:{
+        type:Number,
+        required:true
+    },
     exp_date:{
         type:Date,
         required:true

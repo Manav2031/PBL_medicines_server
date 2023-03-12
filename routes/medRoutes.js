@@ -7,9 +7,9 @@ const {getAllMed,CreateMed}=require('../controller/medController');
 
 
 //GET route in medical inventory to get all medicines data
-router.get('/med', getAllMed);
+router.get('/', getAllMed);
 
 //POST route in medical invertory
-router.post('/med',CreateMed);
+router.post('/',CreateMed);
 
 module.exports = router;

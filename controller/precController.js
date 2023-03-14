@@ -5,12 +5,16 @@ exports.CreatePresc=async (req,res)=>{
     try{
         const presc=new prescription({
             name:req.body.name,
-            quantity:req.body.quantity
+            doctor:req.body.doctor,
+            email:req.body.email,
+            med:req.body.med
         });
         presc.save()
-        const filter={name:presc.name};
-        const update={ $inc: { quantity: -presc.quantity } };
-        await medicines.findOneAndUpdate(filter,update);
+        presc.med.map(async (item)=>{
+            const filter={name:item.name};
+            const update={ $inc: { quantity: -item.quantity } };
+            await medicines.findOneAndUpdate(filter,update);
+        })
         res.status(200).send("Order delivered");
 
     }catch(err){

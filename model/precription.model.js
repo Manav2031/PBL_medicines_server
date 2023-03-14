@@ -5,9 +5,18 @@ const prescriptionSchema = mongoose.Schema(
       type:String,
       required:true
     },
-    quantity:{
-      type:Number,
-      default:1
+    doctor:{
+      type:String,
+      required:true
+    },
+    email:{
+      type:String,
+      required:true
+    },
+    med:[],//contains medName and quantity
+    date:{
+      type:Date,
+      default:Date.now
     }
   }
 );

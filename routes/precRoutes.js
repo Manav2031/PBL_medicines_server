@@ -3,12 +3,9 @@ const mongoose=require('mongoose')
 const bodyParser=require('body-parser')
 const router = express.Router();
 
+const {getPrescData,CreatePresc}=require('../controller/precController')
 //POST a new prescription
-router.post('/',function(req,res){
-    res.send('hello');
-});
+router.post('/',CreatePresc);
 
-router.get('/',function(req,res){
-    res.json('hello');
-});
+router.get('/',getPrescData);
 module.exports=router;

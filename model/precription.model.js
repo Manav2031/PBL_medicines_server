@@ -1,28 +1,16 @@
 const mongoose = require("mongoose");
 const prescriptionSchema = mongoose.Schema(
   {
-    userid: {
-      type: String,
-      require,
+    name:{
+      type:String,
+      required:true
     },
-    name: {
-      type: String,
-      require,
-    },
-    email: {
-      type: String,
-      require,
-    },
-    orderItem: [], //array of medicine names and qty.
-    orderAmount: {
-      type: Number,
-      require,
-    },
-  },
-  {
-    timestamps: true,
+    quantity:{
+      type:Number,
+      default:1
+    }
   }
 );
 
-const prescription = mongoose.model("order", orderSchema);
+const prescription = mongoose.model("prescription", prescriptionSchema);
 module.exports = prescription;

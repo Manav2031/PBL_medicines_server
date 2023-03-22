@@ -1,8 +1,5 @@
 # Medicine Ordering Portal Backend
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6106d1aaf4ce85c385b8bca6368d9cd792762af2
+
 Port :5000
 ## API created in backend
 ### 1. Medical Store DataBase
@@ -40,11 +37,4 @@ Port :5000
 #### POST Route:
     Decription: Create a new prescription and recompute medical store stock according to medicines quantity 
 
-<<<<<<< HEAD
-=======
->>>>>>> 0147e709482d47010f37cd9668d7f7953a154804
-=======
 
-
-
->>>>>>> 6106d1aaf4ce85c385b8bca6368d9cd792762af2

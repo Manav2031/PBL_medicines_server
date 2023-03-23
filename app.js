@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 
 const medRouter = require('./routes/medRoutes')
 const prescRouter=require('./routes/precRoutes')
+const checkRouter=require('./routes/checkRoutes')
 
 const app = express()
 const port = 5000
@@ -16,6 +17,7 @@ app.use(bodyParser.json())
 
 app.use('/med', medRouter);
 app.use('/presc',prescRouter);
+app.use('/check',checkRouter)
 app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
 mongoose.connect("mongodb://0.0.0.0:27017/medicalDB", { useNewUrlParser: true, useUnifiedTopology: true }) //on upgrading node version to 18.x.x use 0.0.0.0 instead of localhost

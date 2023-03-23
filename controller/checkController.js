@@ -2,6 +2,7 @@ const medicines=require('../model/medicalSchema')
 
 exports.checkAvailability=(req,res)=>{
     try{
+        var checked=1;
         const presc={                                 //add prescription to database
             name:req.body.name,
             doctor:req.body.doctor,
@@ -12,14 +13,11 @@ exports.checkAvailability=(req,res)=>{
             const filter={name:item.name};
             let medItem=await medicines.findOne(filter);
             if(medItem.quantity>=item.quantity){
-                 res.status(201).json({
-                    availability:0
-                })
-                return
+                checked=0
             }
         })
         res.status(200).json({
-            availability:1
+            availability:checked
         });
 
     }catch(err){

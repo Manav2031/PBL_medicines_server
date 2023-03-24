@@ -10,13 +10,7 @@ exports.checkAvailability=async (req,res)=>{
             email:req.body.email,
             med:req.body.med
         };
-        // presc.med.forEach(async (item)=>{                                  //subtract quantity of ordered medicines from stock
-        //     const filter={name:item.name};
-        //     let medItem=await medicines.findOne(filter);
-        //     if(medItem.quantity<=item.quantity){
-        //         checked=false;
-        //     }
-        // })
+    
         for(i=0;i<presc.med.length;i++){
             const item=presc.med[i];
             const filter={name:item.name};

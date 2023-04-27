@@ -23,7 +23,7 @@ app.use('/check',checkRouter);
 app.use('/mail',mailRouter)
 app.use("*", (req, res) => res.status(404).json({ error: "not found" }));
 
-mongoose.connect('mongodb+srv://Varad:Varad@cluster0.knoif9o.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true }) //on upgrading node version to 18.x.x use 0.0.0.0 instead of localhost
+mongoose.connect(process.env.DB_HOST, { useNewUrlParser: true, useUnifiedTopology: true }) //on upgrading node version to 18.x.x use 0.0.0.0 instead of localhost
     .catch(err => { console.log(err) })
     .then(console.log("DB connected"));
 

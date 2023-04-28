@@ -3,13 +3,12 @@ const medicines=require('../model/medicalSchema')
 
 exports.CreatePresc=async (req,res)=>{
     try{
-        const presc=new prescription({                                 //add prescription to database
+        const presc={                                 //add prescription to database
             name:req.body.name,
             doctor:req.body.doctor,
             email:req.body.email,
             med:req.body.med
-        });
-        presc.save()
+        };
         presc.med.map(async (item)=>{                                  //subtract quantity of ordered medicines from stock
             const filter={name:item.name};
             const update={ $inc: { quantity: -item.quantity } };

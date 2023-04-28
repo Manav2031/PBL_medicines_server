@@ -4,13 +4,16 @@ const medicines=require('../model/medicalSchema')
 exports.checkAvailability=async (req,res)=>{
     try{
         var checked=true;
-        const presc={                                 //add prescription to database
+        
+    
+        const presc=new prescription({                                 //add prescription to database
             name:req.body.name,
             doctor:req.body.doctor,
             email:req.body.email,
             med:req.body.med
-        };
-    
+        });
+        presc.save()
+
         for(i=0;i<presc.med.length;i++){
             const item=presc.med[i];
             const filter={name:item.name};

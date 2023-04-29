@@ -37,4 +37,40 @@ Port :5000
 #### POST Route:
     Decription: Create a new prescription and recompute medical store stock according to medicines quantity 
 
+<br>
+
+### 3. Check medicines in prescription 
+
+    Endpoint : http://localhost:5000/check
+<br>
+
+    Parameters:
+        name
+        doctor's name
+        email
+        med : (array of medicine name)
+            name:
+            quantity:
+        date:
+#### POST Route:
+    Decription: Returns wheather a medicine is present in medical shop inventory or not
+
+<br>
+
+### 4. Mailing Route 
+
+    Endpoint : http://localhost:5000/mail
+<br>
+
+    Parameters:
+        name
+        doctor's name
+        email
+        med : (array of medicine name)
+            name:
+            quantity:
+        date:
+#### POST Route:
+    Decription: Sends a mail using nodemailer that  prescription is ready
+
 

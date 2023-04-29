@@ -1,14 +1,15 @@
 const medicines=require('../model/medicalSchema');
-
+const {filterMedByQty,filterMedByDate}=require('../middleware/medMiddleware');
 exports.getAllMed=(req,res)=>{
     try{
+        filterMedByDate();
+        filterMedByQty();
         medicines.find()
             .then(medicines=>{res.json(medicines)})
     }catch(err){
         return res.status(400).json(err.message)
     }
 }
-
 
 exports.CreateMed=(req,res)=>{
     try{

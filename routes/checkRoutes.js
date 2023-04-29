@@ -3,6 +3,6 @@ const router=express.Router()
 
 const {checkAvailability}=require('../controller/checkController')
 
-router.post('/',checkAvailability)
+router.get('/:id',checkAvailability)
 
 module.exports=router;

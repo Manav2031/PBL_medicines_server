@@ -1,19 +1,12 @@
 const medicines=require('../model/medicalSchema')
-
+const prescription=require('../model/precription.model')
 
 exports.checkAvailability=async (req,res)=>{
     try{
         var checked=true;
-        
-    
-        const presc=new prescription({                                 //add prescription to database
-            name:req.body.name,
-            doctor:req.body.doctor,
-            email:req.body.email,
-            med:req.body.med
-        });
-        presc.save()
-
+        id = req.params.id
+        const presc=prescription.find(id)
+          
         for(i=0;i<presc.med.length;i++){
             const item=presc.med[i];
             const filter={name:item.name};
@@ -23,6 +16,7 @@ exports.checkAvailability=async (req,res)=>{
                 break;
             }
         }
+
         console.log(checked)
         return res.status(200).json({
             availability:checked

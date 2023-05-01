@@ -12,7 +12,7 @@ exports.CreatePresc=async (req,res)=>{
         });
         presc.save()
 
-        res.status(200).send(presc);
+        res.status(200).json(presc);
 
     }catch(err){
         return res.status(400).json(err.message)
@@ -43,7 +43,9 @@ exports.orderMed=async (req,res)=>{
             const update={ $inc: { quantity: -item.quantity } };
             await medicines.findOneAndUpdate(filter,update);
         })
-        res.status(200).send("Order delivered");
+        res.status(200).json({
+            delivery:1
+        });
 
     }catch(err){
         return res.status(400).json(err.message)

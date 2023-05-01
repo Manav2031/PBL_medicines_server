@@ -4,8 +4,12 @@ const prescription=require('../model/precription.model')
 exports.checkAvailability=async (req,res)=>{
     try{
         var checked=true;
-        id = req.params.id
-        const presc=prescription.find(id)
+        const presc={                                 //add prescription to database
+            name:req.body.name,
+            doctor:req.body.doctor,
+            email:req.body.email,
+            med:req.body.med
+        };
           
         for(i=0;i<presc.med.length;i++){
             const item=presc.med[i];
